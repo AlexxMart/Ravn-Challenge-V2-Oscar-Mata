@@ -19,4 +19,29 @@ section {
   display: flex;
   flex-direction: column;
   width: 25%;
-  min-width: 300px; }
+  min-width: 300px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1); }
+
+.people-cell-container button {
+  display: flex;
+  justify-content: space-between;
+  background: none;
+  padding: 16px 24px 16px 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-left: 14px; }
+
+.people-cell-container .cell-title .name {
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: bold;
+  color: #121212; }
+
+.people-cell-container .cell-title .sub-details {
+  font-size: 14px;
+  line-height: 17px;
+  color: #828282; }
+
+.people-cell-container .cell-title p {
+  text-align: left;
+  margin: 0; }
