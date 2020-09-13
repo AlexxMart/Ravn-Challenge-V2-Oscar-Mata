@@ -4,15 +4,18 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import {RootObject} from '../../helpers/interfaces';
 
-export const PeopleButton: React.FC<RootObject> = ({
+import {styles} from './styles';
+
+export const PersonCell: React.FC<RootObject> = ({
 	id,
 	name,
 	homeworld,
-	species = 'human',
+	species = 'Human',
 	navigation,
 }) => {
 	return (
 		<TouchableOpacity
+			style={styles.wrapper}
 			onPress={() =>
 				navigation.navigate('Details', {
 					id,
@@ -20,8 +23,8 @@ export const PeopleButton: React.FC<RootObject> = ({
 				})
 			}>
 			<View>
-				<Text>{name}</Text>
-				<Text>
+				<Text style={styles.personName}>{name}</Text>
+				<Text style={styles.personDetails}>
 					{species} from {homeworld}
 				</Text>
 			</View>
