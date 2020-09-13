@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {FlatList} from 'react-native';
 import {useQuery} from '@apollo/client';
 
@@ -16,6 +16,19 @@ export const Home: React.FC = ({navigation}) => {
 		},
 	});
 
+	const RenderPersonCell = useCallback(
+		({item}) => (
+			<PersonCell
+				id={item.id}
+				name={item.name}
+				navigation={navigation}
+				homeworld={item.homeworld.name}
+				species={item.species?.name}
+			/>
+		),
+		[navigation],
+	);
+
 	if (loading || !data) {
 		return <LoadingIndicator />;
 	}
@@ -25,37 +38,29 @@ export const Home: React.FC = ({navigation}) => {
 	}
 
 	const {allPeople} = data;
-	const {people, pageInfo} = allPeople;
+	const {people, pageInfo, totalCount} = allPeople;
 
 	return (
 		<FlatList
 			data={people}
 			ListHeaderComponent={
-				<Header name={'People of Star Wars'} navigation={navigation} />
+				<Header
+					isDetails={false}
+					name={'People of Star Wars'}
+					navigation={navigation}
+				/>
 			}
 			keyExtractor={(item) => item.id}
-			renderItem={({item}) => (
-				<PersonCell
-					id={item.id}
-					name={item.name}
-					navigation={navigation}
-					homeworld={item.homeworld.name}
-					species={item.species?.name}
-				/>
-			)}
+			renderItem={RenderPersonCell}
 			onEndReached={() =>
 				fetchMore({
 					variables: {after: pageInfo.endCursor},
-					updateQuery: (prevResult: Data, {fetchMoreResult}) => {
-						if (
-							!fetchMoreResult ||
-							prevResult.allPeople.people.length ===
-								prevResult.allPeople.totalCount
-						) {
-							return prevResult;
+					updateQuery: (prev: Data, {fetchMoreResult}) => {
+						if (!fetchMoreResult || people.length === totalCount) {
+							return prev;
 						}
 						fetchMoreResult.allPeople.people = [
-							...prevResult.allPeople.people,
+							...prev.allPeople.people,
 							...fetchMoreResult.allPeople.people,
 						];
 						return fetchMoreResult;
