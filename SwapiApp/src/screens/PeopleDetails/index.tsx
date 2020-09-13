@@ -38,7 +38,7 @@ export const PeopleDetails = ({navigation}) => {
 
 	return (
 		<>
-			<Header name={name} navigation={navigation} />
+			<Header isDetails name={name} navigation={navigation} />
 			<ScrollView>
 				<Text>{name}</Text>
 			</ScrollView>

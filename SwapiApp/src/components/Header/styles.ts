@@ -15,4 +15,9 @@ export const styles = StyleSheet.create({
 		color: colors.WHITE,
 		lineHeight: 20,
 	},
+	goBack: {
+		position: 'absolute',
+		left: 16,
+		top: 16,
+	},
 });
