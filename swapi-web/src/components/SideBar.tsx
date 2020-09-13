@@ -5,7 +5,6 @@ import { DetailsInterface } from '../helpers/interfaces';
 
 import chevron from '../assets/icons/chevron.svg';
 import { LoadingCell } from './LoadingCell';
-import { NoticeCell } from './NoticeCell';
 
 export const SideBar = ({setSelected}: {setSelected: any}) => {
 	const {loading, error, data} = useQuery(ALL_PEOPLE, {
@@ -19,7 +18,7 @@ export const SideBar = ({setSelected}: {setSelected: any}) => {
 	}
 
 	if (error) {
-		return <div className="people-cell-container"><NoticeCell /></div>
+		return <div className="people-cell-container"><p className="error">Failed to Load Data</p></div>
 	}
 
 	const {allPeople} = data;

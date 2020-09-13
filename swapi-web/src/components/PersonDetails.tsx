@@ -4,7 +4,6 @@ import {useQuery, gql} from '@apollo/client';
 import {NameObject} from '../helpers/interfaces';
 import {DataCell} from './DataCell';
 import {LoadingCell} from './LoadingCell';
-import {NoticeCell} from './NoticeCell';
 
 export const PersonDetails = ({id}: {id: string}) => {
 	const GET_CHARACTER = gql`
@@ -30,7 +29,7 @@ export const PersonDetails = ({id}: {id: string}) => {
 		}
 
 		if (error) {
-			return <NoticeCell />
+			return <p className="error">Failed to Load Data</p>
 		}
 	}
 
