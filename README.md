@@ -4,7 +4,7 @@ Here you will find the complete coding challenge both for web and react native.
 
 Both cases use ApolloClient to consume the GraphQL API.
 
-There are some similarities in the code structure and the dependencies used for both projects to show the advantage of using React in both ends and demonstrate that sharing a common structure and/or hooks can reduce the amount of time needed to complete a web and mobile solution to a client.
+There are some similarities in the code structure and the dependencies used for both projects to show the advantage of using React in both ends and demonstrate that sharing a common structure and/or hooks can reduce the amount of time needed to complete a web and mobile solution for a client.
 
 ### Notes:
 
