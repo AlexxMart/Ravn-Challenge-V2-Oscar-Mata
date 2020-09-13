@@ -4,6 +4,8 @@ import { ALL_PEOPLE } from '../helpers/queries';
 import { DetailsInterface } from '../helpers/interfaces';
 
 import chevron from '../assets/icons/chevron.svg';
+import { LoadingCell } from './LoadingCell';
+import { NoticeCell } from './NoticeCell';
 
 export const SideBar = ({setSelected}: {setSelected: any}) => {
 	const {loading, error, data} = useQuery(ALL_PEOPLE, {
@@ -13,11 +15,11 @@ export const SideBar = ({setSelected}: {setSelected: any}) => {
 	});
 
 	if (loading || !data) {
-		return <p>Loading</p>
+		return <div className="people-cell-container"><LoadingCell /></div>
 	}
 
 	if (error) {
-		return <p>Error</p>
+		return <div className="people-cell-container"><NoticeCell /></div>
 	}
 
 	const {allPeople} = data;

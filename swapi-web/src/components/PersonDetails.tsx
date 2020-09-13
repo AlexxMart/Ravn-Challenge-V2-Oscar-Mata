@@ -3,6 +3,8 @@ import {useQuery, gql} from '@apollo/client';
 
 import {NameObject} from '../helpers/interfaces';
 import {DataCell} from './DataCell';
+import {LoadingCell} from './LoadingCell';
+import {NoticeCell} from './NoticeCell';
 
 export const PersonDetails = ({id}: {id: string}) => {
 	const GET_CHARACTER = gql`
@@ -24,11 +26,11 @@ export const PersonDetails = ({id}: {id: string}) => {
 
 	if (id) {
 		if (loading || !data) {
-			return <p>Loading</p>
+			return <LoadingCell />
 		}
 
 		if (error) {
-			return <p>Error</p>
+			return <NoticeCell />
 		}
 	}
 
