@@ -3,7 +3,7 @@ import {FlatList} from 'react-native';
 import {useQuery} from '@apollo/client';
 
 import {Header} from '../../components/Header';
-import {PeopleButton} from '../../components/PeopleButton';
+import {PersonCell} from '../../components/PersonCell';
 import {Data} from '../../helpers/interfaces';
 import {ALL_PEOPLE} from '../../helpers/queries';
 import {LoadingIndicator} from '../../components/LoadingIndicator';
@@ -35,7 +35,7 @@ export const Home: React.FC = ({navigation}) => {
 			}
 			keyExtractor={(item) => item.id}
 			renderItem={({item}) => (
-				<PeopleButton
+				<PersonCell
 					id={item.id}
 					name={item.name}
 					navigation={navigation}
