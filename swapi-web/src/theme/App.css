@@ -1,13 +1,13 @@
 html,
 body {
   margin: 0;
-  font-size: 16px; }
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif; }
 
 nav {
   background-color: #121212; }
 
 nav h1 {
-  font-family: Arial, Helvetica, sans-serif;
   color: #FFFFFF;
   padding: 16px 0 16px 33px;
   margin: 0; }
@@ -18,9 +18,10 @@ section {
 .people-cell-container {
   display: flex;
   flex-direction: column;
-  width: 25%;
-  min-width: 300px;
-  border-right: 1px solid rgba(0, 0, 0, 0.1); }
+  min-width: 349px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  height: 93vh;
+  overflow-y: scroll; }
 
 .people-cell-container button {
   display: flex;
@@ -45,3 +46,26 @@ section {
 .people-cell-container .cell-title p {
   text-align: left;
   margin: 0; }
+
+.details-wrapper {
+  width: 100%;
+  padding: 0 100px; }
+
+.details-wrapper .section-header {
+  margin-top: 32px; }
+
+.details-wrapper .data-cell {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+
+.details-wrapper .data-cell .property, .details-wrapper .data-cell .vehicle-propety {
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: bold;
+  color: #828282;
+  text-transform: capitalize; }
+
+.details-wrapper .data-cell .value {
+  color: #121212; }

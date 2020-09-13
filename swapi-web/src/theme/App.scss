@@ -5,13 +5,13 @@ html,
 body {
 	margin: 0;
 	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 nav {
 	background-color: $ravn-black;
 
 	h1 {
-		font-family: Arial, Helvetica, sans-serif;
 		color: $white;
 		padding: 16px 0 16px 33px;
 		margin: 0;
@@ -25,9 +25,10 @@ section {
 .people-cell-container {
 	display: flex;
 	flex-direction: column;
-	width: 25%;
-	min-width: 300px;
+	min-width: 349px;
 	border-right: 1px solid $light-gray;
+	height: 93vh;
+	overflow-y: scroll;
 
 	button {
 		display: flex;
@@ -56,6 +57,34 @@ section {
 		p {
 			text-align: left;
 			margin: 0;
+		}
+	}
+}
+
+.details-wrapper {
+	width: 100%;
+	padding: 0 100px;
+
+	.section-header {
+		margin-top: 32px;
+	}
+
+	.data-cell {
+		display: flex;
+		justify-content: space-between;
+		padding: 14px 0;
+		border-bottom: 1px solid $light-gray;
+
+		.property, .vehicle-propety {
+			font-size: 17px;
+			line-height: 20px;
+			font-weight: bold;
+			color: $text-light;
+			text-transform: capitalize;
+		}
+
+		.value {
+			color: $ravn-black;
 		}
 	}
 }

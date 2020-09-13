@@ -33,17 +33,17 @@ export const PersonDetails = ({id}: {id: string}) => {
 	}
 
 	return (
-		<div>
+		<div className="details-wrapper">
 			{data?.person ? (
 				<>
 					<h2 className="section-header">General Information</h2>
-						{Object.keys(data.person).slice(1, -2).map((element: string, index: number) => (
-							<DataCell key={index} property={element} value={data.person[element]} />
-						))}
+					{Object.keys(data.person).slice(1, -2).map((element: string, index: number) => (
+						<DataCell key={index} property={element} value={data.person[element]} />
+					))}
 					<h2 className="section-header">Vehicles</h2>
 					{data.person.vehicleConnection.vehicles.map((element: NameObject, index: number) => (
 						<DataCell key={index} property={element.name} isVehicle />
-						))}
+					))}
 				</>
 			) : null}
 		</div>
