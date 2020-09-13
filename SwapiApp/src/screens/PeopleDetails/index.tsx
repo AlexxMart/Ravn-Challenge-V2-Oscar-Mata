@@ -5,6 +5,10 @@ import {useQuery, gql} from '@apollo/client';
 import {Header} from '../../components/Header';
 import {LoadingIndicator} from '../../components/LoadingIndicator';
 import {ErrorMessage} from '../../components/ErrorMessage';
+import {DataCell} from '../../components/DataCell';
+
+import {styles} from './styles';
+import {NameObject} from '../../helpers/interfaces';
 
 export const PeopleDetails = ({navigation}) => {
 	const id = navigation.getParam('id', 'NO-ID');
@@ -36,11 +40,22 @@ export const PeopleDetails = ({navigation}) => {
 		return <ErrorMessage />;
 	}
 
+	const {person} = data;
+	const detailsArray = Object.keys(person);
+	const lastKey = detailsArray.slice(-1);
+
 	return (
 		<>
 			<Header isDetails name={name} navigation={navigation} />
 			<ScrollView>
-				<Text>{name}</Text>
+				<Text style={styles.detailsHeader}>General Information</Text>
+				{detailsArray.slice(1, -1).map((element, index) => (
+					<DataCell key={index} property={element} value={person[element]} />
+				))}
+				<Text style={styles.detailsHeader}>Vehicles</Text>
+				{person[lastKey].vehicles.map((vehicle: NameObject, index: number) => (
+					<DataCell key={index} property={vehicle.name} />
+				))}
 			</ScrollView>
 		</>
 	);

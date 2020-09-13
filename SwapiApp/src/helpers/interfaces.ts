@@ -1,16 +1,12 @@
-export interface Homeworld {
-	name: string;
-}
-
-export interface Species {
+export interface NameObject {
 	name: string;
 }
 
 export interface RootObject {
 	id: string;
 	name: string;
-	homeworld: Homeworld;
-	species: Species;
+	homeworld: NameObject;
+	species: NameObject;
 	navigation: any;
 }
 
@@ -30,4 +26,9 @@ export interface AllPeople {
 export interface Data {
 	allPeople: AllPeople;
 	length: number;
+}
+
+export interface Cell {
+	property: string;
+	value?: string;
 }
