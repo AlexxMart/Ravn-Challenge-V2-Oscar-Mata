@@ -17,7 +17,7 @@ Characters List
 ![alt text](https://res.cloudinary.com/dqjmv8wtt/image/upload/v1600015233/Screen_Shot_2020-09-13_at_10.39.45_AM_u7puit.png "Characters List")
 
 Details Page
-![alt text](https://res.cloudinary.com/dqjmv8wtt/image/upload/v1600015233/Screen_Shot_2020-09-13_at_10.39.45_AM_u7puit.png "Details Page")
+![alt text](https://res.cloudinary.com/dqjmv8wtt/image/upload/v1600015229/Screen_Shot_2020-09-13_at_10.40.04_AM_mjjhxx.png "Details Page")
 
 ## Assumptions
 
